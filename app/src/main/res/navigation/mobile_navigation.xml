@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_list_movies">
+    <fragment
+        android:id="@+id/navigation_list_movies"
+        android:name="com.frontic.cinemapp.ui.listMovies.ListMoviesFragment"
+        android:label="@string/title_list_movies"
+        tools:layout="@layout/fragment_list_movies" >
+        <action
+            android:id="@+id/action_navigation_list_movies_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment"
+            app:popUpTo="@id/navigation_list_movies"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_movies"
+        android:name="com.frontic.cinemapp.ui.myMovies.MyMoviesFragment"
+        android:label="@string/title_my_movies"
+        tools:layout="@layout/fragment_my_movies" >
+        <action
+            android:id="@+id/action_navigation_my_movies_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment"
+            app:popUpTo="@id/navigation_my_movies"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+        <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.frontic.cinemapp.ui.detailMovie.DetailMovieFragment"
+        android:label="@string/title_details"
+        tools:layout="@layout/fragment_detail_movie">
+        </fragment>
+
+
+</navigation>
