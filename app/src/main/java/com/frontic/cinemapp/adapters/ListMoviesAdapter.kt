@@ -13,6 +13,9 @@ import com.frontic.cinemapp.api.GlideApi
 import com.frontic.cinemapp.models.MovieListResult
 import com.frontic.cinemapp.ui.base.BaseContract
 
+/**
+ * Adapter to display movie list, both local and remote ones.
+ */
 class ListMoviesAdapter(
     private val context: Context,
     private val listItems: List<MovieListResult>,
@@ -20,7 +23,6 @@ class ListMoviesAdapter(
     private val view: BaseContract.BaseView
 ) :
     RecyclerView.Adapter<ListMoviesAdapter.ViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
@@ -41,11 +43,13 @@ class ListMoviesAdapter(
                 "${item.voteCount}"
             )
 
-            GlideApi(context).loadImageFromUrl(item.posterPath,GlideApi.Size.poster, poster)
-            if (!genres.isNullOrEmpty()){
-            holder.genresList.text = item.getGenresString(genres)}
+            GlideApi(context).loadImageFromUrl(item.posterPath, GlideApi.Size.poster, poster)
 
-            holder.itemView.setOnClickListener{
+            if (!genres.isNullOrEmpty()) {
+                holder.genresList.text = item.getGenresString(genres)
+            }
+
+            holder.itemView.setOnClickListener {
                 view.goToMovie(item)
             }
         }
@@ -55,6 +59,9 @@ class ListMoviesAdapter(
         return listItems.size
     }
 
+    /**
+     * View Holder that represent a movie list item.
+     */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.title_tv)
         val ratingBar: RatingBar = view.findViewById(R.id.rating_bar)

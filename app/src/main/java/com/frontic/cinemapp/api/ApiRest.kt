@@ -1,17 +1,20 @@
 package com.frontic.cinemapp.api
 
-import android.content.Context
 import com.google.gson.GsonBuilder
-import okhttp3.*
+import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import okio.IOException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * API Rest configuration
+ * @author Christopher Paulino
+ */
 object ApiRest {
 
     private const val BASE_URL = "https://api.themoviedb.org/3/"
+
 
     fun create(): ApiServices {
 
@@ -21,9 +24,6 @@ object ApiRest {
             level = HttpLoggingInterceptor.Level.BASIC
             level = HttpLoggingInterceptor.Level.BODY
         }
-
-
-
 
         val client: OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)

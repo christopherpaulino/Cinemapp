@@ -73,3 +73,6 @@ enum class Location {
     local, remote
 }
 
+enum class MediaType {
+    tv,movie,all
+}

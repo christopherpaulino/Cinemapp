@@ -74,6 +74,7 @@ class ListMoviesPresenter(private val view: ListMoviesContract.View, private val
 
     private fun isNetworkConnected(): Boolean {
         return if (NetworkUtils.isConnected(context)) {
+            view.showNoNetworkConnected(false)
             true
         } else {
             view.showLoading(false)
