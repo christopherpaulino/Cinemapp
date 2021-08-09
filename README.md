@@ -28,9 +28,9 @@ Listado de pantallas y/o funcionalidades del App.
 
 <h2>Librerias Utilizadas</h2>
 
-# Room
-# Retrofit
-# OkHttp
-# Android Navigation
-# Kotlin Coroutines
-# Glide
+* ## Room
+* ## Retrofit
+* ## OkHttp
+* ## Android Navigation
+* ## Kotlin Coroutines
+* ## Glide
