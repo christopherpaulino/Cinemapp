@@ -33,4 +33,5 @@ Listado de pantallas y/o funcionalidades del App.
 * ## OkHttp
 * ## Android Navigation
 * ## Kotlin Coroutines
+* ## Kotlin Scope Functions
 * ## Glide
