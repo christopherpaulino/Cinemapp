@@ -1,125 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.detailMovie.DetailMovieFragment">
+    xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+    android:layout_width="match_parent">
 
-    <ImageView
-        android:id="@+id/backdrop"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/backdrop_content_description"
-        android:scaleType="centerCrop"
-        app:layout_constraintDimensionRatio="16:9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/image_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="-16dp"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/backdrop"
-        app:layout_constraintStart_toStartOf="@+id/backdrop"
-        app:strokeColor="@color/whiteSmoke"
-        app:strokeWidth="4dp">
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.detailMovie.DetailMovieFragment">
 
         <ImageView
-            android:id="@+id/poster_iv"
-            android:layout_width="90dp"
-            android:layout_height="135dp"
-            android:contentDescription="@string/image_poster_content_description"
+            android:id="@+id/backdrop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/backdrop_content_description"
             android:scaleType="centerCrop"
-            tools:srcCompat="@mipmap/test" />
-    </com.google.android.material.card.MaterialCardView>
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/rating_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="0dp"
-        android:textColor="@color/secondaryColor"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/image_container"
-        app:layout_constraintStart_toStartOf="@+id/image_container"
-        app:layout_constraintTop_toBottomOf="@+id/image_container" />
-
-    <RatingBar
-        android:id="@+id/rating_bar"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="5"
-        android:stepSize="0"
-        app:layout_constraintEnd_toEndOf="@+id/rating_tv"
-        app:layout_constraintStart_toStartOf="@+id/rating_tv"
-        app:layout_constraintTop_toBottomOf="@+id/rating_tv" />
-
-    <TextView
-        android:id="@+id/title_tv"
-        style="@style/title_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/rating_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rating_bar" />
-
-    <TextView
-        android:id="@+id/original_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="@color/secondaryColor"
-        app:layout_constraintStart_toStartOf="@+id/title_tv"
-        app:layout_constraintTop_toBottomOf="@+id/title_tv" />
-
-    <TextView
-        android:id="@+id/overview_lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/about_movie"
-        style="@style/title_text"
-        app:layout_constraintStart_toStartOf="@+id/rating_bar"
-        app:layout_constraintTop_toBottomOf="@+id/title_tv" />
-
-    <TextView
-        android:id="@+id/overview_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/secondaryTextColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/overview_lbl"
-        app:layout_constraintTop_toBottomOf="@+id/overview_lbl" />
-
-    <Button
-        android:id="@+id/save_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/mark_as_seen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/overview_tv" />
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/image_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="-16dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/backdrop"
+            app:layout_constraintStart_toStartOf="@+id/backdrop"
+            app:strokeColor="@color/whiteSmoke"
+            app:strokeWidth="4dp">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/poster_iv"
+                android:layout_width="90dp"
+                android:layout_height="135dp"
+                android:contentDescription="@string/image_poster_content_description"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@mipmap/test" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/rating_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="0dp"
+            android:textColor="@color/secondaryColor"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/image_container"
+            app:layout_constraintStart_toStartOf="@+id/image_container"
+            app:layout_constraintTop_toBottomOf="@+id/image_container" />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0"
+            app:layout_constraintEnd_toEndOf="@+id/rating_tv"
+            app:layout_constraintStart_toStartOf="@+id/rating_tv"
+            app:layout_constraintTop_toBottomOf="@+id/rating_tv" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            style="@style/title_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/rating_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/rating_bar" />
+
+        <TextView
+            android:id="@+id/original_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/secondaryColor"
+            app:layout_constraintStart_toStartOf="@+id/title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/title_tv" />
+
+        <TextView
+            android:id="@+id/overview_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/about_movie"
+            style="@style/title_text"
+            app:layout_constraintStart_toStartOf="@+id/rating_bar"
+            app:layout_constraintTop_toBottomOf="@+id/title_tv" />
+
+        <TextView
+            android:id="@+id/overview_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/secondaryTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/overview_lbl"
+            app:layout_constraintTop_toBottomOf="@+id/overview_lbl" />
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:drawableLeft="@drawable/ic_eye_24"
+            android:drawableTint="@color/primaryTextColor"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:text="@string/mark_as_seen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/overview_tv" />
+
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp"
+            android:drawableLeft="@drawable/ic_delete_24"
+            android:drawableTint="@color/primaryTextColor"
+            android:text="@string/delete_from_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save_btn" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

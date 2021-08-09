@@ -62,6 +62,11 @@ data class MovieListResult(
 
         return strings.joinToString() }
 
+    override fun toString(): String {
+        return "MovieListResult(genreIDS=$genreIDS, id=$id, originalTitle=$originalTitle, posterPath='$posterPath', voteAverage=$voteAverage, overview='$overview', voteCount=$voteCount, backdropPath='$backdropPath', title=$title, mediaType='$mediaType', originalName=$originalName, originCountry=$originCountry, location=$location)"
+    }
+
+
 }
 
 enum class Location {

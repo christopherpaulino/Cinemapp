@@ -183,7 +183,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/frontic/cinemapp/utils/NetworkUtils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/drawable/ic_movies_24.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/ic_nfo_24.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/ic_outline_info_24.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/ic_warning_24.xml">
           <value>
             <set />
           </value>
@@ -194,6 +214,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/empty_screen.xml">
           <value>
             <set />
           </value>
@@ -224,6 +249,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/movie_list_item_layout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/no_internet_screen.xml">
           <value>
             <set />
           </value>
@@ -274,6 +304,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../MyFavNeighbour/app/src/main/java/com/chrisp/myfavneighbour/models/CharacterListResponse.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MyFavNeighbour/app/src/main/java/com/chrisp/myfavneighbour/ui/charactersDetails/DetailCharacterContract.kt">
           <value>
             <set />
           </value>

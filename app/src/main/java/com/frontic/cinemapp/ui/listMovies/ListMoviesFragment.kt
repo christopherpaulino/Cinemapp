@@ -14,6 +14,7 @@ import com.frontic.cinemapp.adapters.ListMoviesAdapter
 import com.frontic.cinemapp.models.MediaType
 import com.frontic.cinemapp.models.MovieListResult
 import com.frontic.cinemapp.ui.base.BaseFragment
+import com.frontic.cinemapp.utils.NetworkUtils
 
 class ListMoviesFragment : BaseFragment() , ListMoviesContract.View{
 
@@ -21,6 +22,8 @@ class ListMoviesFragment : BaseFragment() , ListMoviesContract.View{
     private lateinit var recyclerView : RecyclerView
     private lateinit var genres: Map<Int, String>
     private lateinit var progressBar: ProgressBar
+    private lateinit var noNetworkView: View
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -48,6 +51,7 @@ class ListMoviesFragment : BaseFragment() , ListMoviesContract.View{
 
         progressBar = view.findViewById(R.id.loading_pbar)
         recyclerView = view.findViewById(R.id.list_movies_rv)
+        noNetworkView = view.findViewById(R.id.no_internet_screen)
 
         presenter.getGenres()
     }
@@ -55,14 +59,6 @@ class ListMoviesFragment : BaseFragment() , ListMoviesContract.View{
     override fun showGenres(genres: Map<Int,String>) {
         this.genres = genres
         presenter.getTrending(MediaType.movie.name)
-    }
-
-    override fun showTrending(value:String) {
-        //Toast.makeText(context, value, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun saveMovie(movieListResult: MovieListResult) {
-       presenter.saveMovie(movieListResult)
     }
 
     override fun showLoading(show: Boolean) {
@@ -78,4 +74,9 @@ class ListMoviesFragment : BaseFragment() , ListMoviesContract.View{
         val bundle = bundleOf("movie" to movieListResult)
         findNavController().navigate(R.id.action_navigation_list_movies_to_detailMovieFragment,bundle)
     }
+
+    override fun showNoNetworkConnected(t: Boolean) {
+        noNetworkView.visibility = if (t) View.VISIBLE else View.GONE
+    }
+
 }

@@ -9,12 +9,16 @@ class MyMoviesPresenter(private val view: MyMoviesContract.View, private val con
 
     private val job = Job()
     private val scopeMainThread = CoroutineScope(job + Dispatchers.Main)
-    private val scopeIO = CoroutineScope(job + Dispatchers.IO)
 
 
     override fun getMyMovies() {
         scopeMainThread.launch {
-            view.showMyMovies(getMyMoviesDB())
+            val list = getMyMoviesDB()
+            if (list.isNotEmpty()) {
+                view.showMyMovies(list) 
+                view.showEmptyList(false)
+            } else (view.showEmptyList(true))
+
         }
     }
 

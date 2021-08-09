@@ -10,7 +10,8 @@ class MyMoviesContract {
         fun destroy()
     }
 
-    interface  View: BaseContract.BaseView {
+    interface View : BaseContract.BaseView {
         fun showMyMovies(list: List<MovieListResult>)
+        fun showEmptyList(t: Boolean)
     }
 }

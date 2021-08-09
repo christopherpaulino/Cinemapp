@@ -21,6 +21,7 @@ class MyMoviesFragment : BaseFragment(), MyMoviesContract.View {
     private lateinit var recyclerView: RecyclerView
     private lateinit var presenter: MyMoviesContract.Presenter
     private var genres: Map<Int,String>? = null
+    private lateinit var emptyView: View
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,10 +47,14 @@ class MyMoviesFragment : BaseFragment(), MyMoviesContract.View {
         super.initializeVariables(view)
 
         presenter = MyMoviesPresenter(this,requireContext())
-
         presenter.getMyMovies()
 
         recyclerView = view.findViewById(R.id.my_movies_rv)
+        emptyView = view.findViewById(R.id.empty_list)
+    }
+
+    override fun showEmptyList(t: Boolean) {
+        emptyView.visibility = if (t) View.VISIBLE else View.GONE
     }
 
     override fun showMyMovies(list: List<MovieListResult>) {
