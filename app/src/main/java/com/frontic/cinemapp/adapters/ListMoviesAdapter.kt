@@ -15,6 +15,8 @@ import com.frontic.cinemapp.ui.base.BaseContract
 
 /**
  * Adapter to display movie list, both local and remote ones.
+ *
+ * @author Christopher Paulino.
  */
 class ListMoviesAdapter(
     private val context: Context,
@@ -43,7 +45,7 @@ class ListMoviesAdapter(
                 "${item.voteCount}"
             )
 
-            GlideApi(context).loadImageFromUrl(item.posterPath, GlideApi.Size.poster, poster)
+            GlideApi(context).loadImageFromUrl(item.posterPath, GlideApi.Size.Poster, poster)
 
             if (!genres.isNullOrEmpty()) {
                 holder.genresList.text = item.getGenresString(genres)

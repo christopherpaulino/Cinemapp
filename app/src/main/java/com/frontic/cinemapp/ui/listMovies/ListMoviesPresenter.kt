@@ -15,13 +15,20 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
-
+/**
+ * Presenter that interacts with ListMovieFragment
+ * @param view instance of ListMovieContrac.View interface that represents the View.
+ * @param context Context of the View
+ * @author Christopher Paulino
+ */
 class ListMoviesPresenter(private val view: ListMoviesContract.View, private val context: Context) :
     ListMoviesContract.Presenter {
 
     private val job = Job()
     private val scopeIO = CoroutineScope(job + Dispatchers.IO)
+    private val language = Locale.getDefault().language
 
     override fun destroy() {
         job.cancel()
@@ -29,7 +36,8 @@ class ListMoviesPresenter(private val view: ListMoviesContract.View, private val
 
     override fun getTrending(mediaType: String) {
         if (isNetworkConnected()) {
-            ApiRest.create().getTrendingMovies(mediaType, "day")
+
+            ApiRest.create().getTrendingMovies(mediaType, "day",language)
                 .enqueue(object : Callback<ListResponse> {
                     override fun onResponse(
                         call: Call<ListResponse>,
@@ -48,13 +56,12 @@ class ListMoviesPresenter(private val view: ListMoviesContract.View, private val
                     }
                 })
         }
-
     }
 
     override fun getGenres() {
         view.showLoading(true)
         if (isNetworkConnected()) {
-            ApiRest.create().getGenres().enqueue(object : Callback<GenreResponse> {
+            ApiRest.create().getGenres(language).enqueue(object : Callback<GenreResponse> {
                 override fun onResponse(
                     call: Call<GenreResponse>,
                     response: Response<GenreResponse>
@@ -72,6 +79,9 @@ class ListMoviesPresenter(private val view: ListMoviesContract.View, private val
         }
     }
 
+    /**
+     * Validate is the device is connected to a network
+     */
     private fun isNetworkConnected(): Boolean {
         return if (NetworkUtils.isConnected(context)) {
             view.showNoNetworkConnected(false)
@@ -81,9 +91,11 @@ class ListMoviesPresenter(private val view: ListMoviesContract.View, private val
             view.showNoNetworkConnected(true)
             false
         }
-
     }
 
+    /**
+     * Save genres to local database
+     */
     private fun saveGenres(list: List<Genre>) {
         scopeIO.launch {
             for (i in list) {

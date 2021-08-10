@@ -2,6 +2,8 @@ package com.frontic.cinemapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.LocaleList
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -12,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.frontic.cinemapp.ui.base.BaseFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 

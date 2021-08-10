@@ -53,7 +53,7 @@ data class MovieListResult(
     @ColumnInfo(name = "origin_country")
     val originCountry: List<String>? = null,): Serializable{
 
-    var location: Location? = Location.remote
+    var location: Location? = Location.Remote
 
     fun getGenresString(genres: Map<Int,String>):String{
         val strings = ArrayList<String>()
@@ -70,7 +70,7 @@ data class MovieListResult(
 }
 
 enum class Location {
-    local, remote
+    Local, Remote
 }
 
 enum class MediaType {

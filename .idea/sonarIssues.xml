@@ -333,6 +333,31 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mi-claro-movil-android/app/src/main/java/com/clarord/miclaro/controller/outagereports/CreateOutageReportProductSelectionActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mi-claro-movil-android/app/src/main/java/com/clarord/miclaro/entities/outage/DiagnosticParameters.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mi-claro-movil-android/app/src/main/java/com/clarord/miclaro/fragments/outage/OutageTroubleshootingInternetSpeedStep.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mi-claro-movil-android/app/src/main/java/com/clarord/miclaro/networking/NetworkConstants.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mi-claro-movil-android/app/src/main/java/com/clarord/miclaro/services/gms/McFirebaseMessagingService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Documents/GitHub/sunflower/app/src/main/java/com/google/samples/apps/sunflower/data/AppDatabase.kt">
           <value>
             <set />

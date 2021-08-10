@@ -33,10 +33,10 @@ class DetailsMoviePresenter(
 
     private suspend fun saveMovieDB(movieListResult: MovieListResult): Int {
         return withContext(Dispatchers.IO) {
-            movieListResult.location = Location.local
+            movieListResult.location = Location.Local
             AppDatabase.getInstance(context).movieListResultDAO.insert(movieListResult)
-            saveImage(movieListResult.posterPath, GlideApi.Size.poster)
-            saveImage(movieListResult.backdropPath, GlideApi.Size.backdrop)
+            saveImage(movieListResult.posterPath, GlideApi.Size.Poster)
+            saveImage(movieListResult.backdropPath, GlideApi.Size.Backdrop)
 
             val list = AppDatabase.getInstance(context).movieListResultDAO.getMyMovies()
             return@withContext list.size
@@ -61,7 +61,7 @@ class DetailsMoviePresenter(
     }
 
     private suspend fun saveImage(path: String, size: GlideApi.Size) {
-        val bitmap = GlideApi(context).getImageBitmat(path, size)
+        val bitmap = GlideApi(context).getImageBitmap(path, size)
 
         val wrapper = ContextWrapper(context)
         var file = wrapper.getDir("images", Context.MODE_PRIVATE)

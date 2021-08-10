@@ -8,14 +8,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 /**
- * API Rest configuration
+ * Singleton API Rest configuration.
+ *
  * @author Christopher Paulino
  */
 object ApiRest {
 
     private const val BASE_URL = "https://api.themoviedb.org/3/"
 
-
+    /**
+     * This function set the http client.
+     *
+     * @return ApiService interface with all the web services ready to be executed.
+     */
     fun create(): ApiServices {
 
         val gson = GsonBuilder().setLenient().create()

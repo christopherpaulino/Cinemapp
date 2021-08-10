@@ -71,7 +71,7 @@ class DetailMovieFragment : BaseFragment(), DetailsMovieContrat.View {
             overview.text = it.overview
             originalTitle.text = it.originalTitle
 
-            if (movieListResult.location == Location.local){
+            if (movieListResult.location == Location.Local){
                 manageLocalData(it)
             } else {
                 manageRemoteData(it)
@@ -91,8 +91,8 @@ class DetailMovieFragment : BaseFragment(), DetailsMovieContrat.View {
         saveButton.visibility = View.VISIBLE
         saveButton.setOnClickListener{ presenter.saveMovie(movieListResult) }
 
-        GlideApi(requireContext()).loadImageFromUrl(movieListResult.posterPath,GlideApi.Size.poster,poster)
-        GlideApi(requireContext()).loadImageFromUrl(movieListResult.backdropPath,GlideApi.Size.backdrop,backdrop)
+        GlideApi(requireContext()).loadImageFromUrl(movieListResult.posterPath,GlideApi.Size.Poster,poster)
+        GlideApi(requireContext()).loadImageFromUrl(movieListResult.backdropPath,GlideApi.Size.Backdrop,backdrop)
     }
 
     override fun onDeletedItem() {

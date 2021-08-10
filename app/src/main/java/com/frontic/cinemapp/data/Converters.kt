@@ -8,6 +8,7 @@ import java.lang.reflect.Type
 
 
 class Converters {
+
     @TypeConverter
     fun fromStringToArrayListString(value: String?): List<String?>? {
         val listType: Type = object : TypeToken<ArrayList<String?>?>() {}.type

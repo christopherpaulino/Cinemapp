@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 /**
  * This data class represents the response structure of genres list request.
- * Created by Christopher Paulino
+ *
+ * @author Christopher Paulino.
  */
 data class GenreResponse(
     @SerializedName("genres")
