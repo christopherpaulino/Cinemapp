@@ -25,11 +25,13 @@ object ApiRest {
 
         val gson = GsonBuilder().setLenient().create()
 
+        //this Interceptor allows to log information in the logcat.
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BASIC
             level = HttpLoggingInterceptor.Level.BODY
         }
 
+        //Http Client that contains relevant configuration to be applied on requests.
         val client: OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .addNetworkInterceptor(AuthInterceptor())

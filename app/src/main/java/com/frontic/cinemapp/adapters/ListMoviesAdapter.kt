@@ -16,6 +16,10 @@ import com.frontic.cinemapp.ui.base.BaseContract
 /**
  * Adapter to display movie list, both local and remote ones.
  *
+ * @param context       Application context.
+ * @param listItems     List of the [MovieListResult] elements to be loaded.
+ * @param genres        Map containing genres to be shown depending its value.
+ * @param view          instance of the View.
  * @author Christopher Paulino.
  */
 class ListMoviesAdapter(
@@ -63,6 +67,8 @@ class ListMoviesAdapter(
 
     /**
      * View Holder that represent a movie list item.
+     *
+     * @param view View resource.
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.title_tv)

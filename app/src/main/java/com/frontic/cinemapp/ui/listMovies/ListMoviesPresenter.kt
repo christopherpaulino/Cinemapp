@@ -18,10 +18,11 @@ import retrofit2.Response
 import java.util.*
 
 /**
- * Presenter that interacts with ListMovieFragment
- * @param view instance of ListMovieContrac.View interface that represents the View.
- * @param context Context of the View
- * @author Christopher Paulino
+ * Presenter that interacts with ListMovieFragment.
+ *
+ * @param view      Instance of ListMovieContrac.View interface that represents the View.
+ * @param context   Context of the View.
+ * @author Christopher Paulino.
  */
 class ListMoviesPresenter(private val view: ListMoviesContract.View, private val context: Context) :
     ListMoviesContract.Presenter {

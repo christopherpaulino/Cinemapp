@@ -15,7 +15,7 @@ import com.frontic.cinemapp.models.MovieListResult
 import com.frontic.cinemapp.ui.base.BaseFragment
 
 
-class DetailMovieFragment : BaseFragment(), DetailsMovieContrat.View {
+class DetailMovieFragment : BaseFragment(), DetailsMovieContract.View {
 
     private lateinit var movieListResult: MovieListResult
     private lateinit var title: TextView
@@ -26,7 +26,7 @@ class DetailMovieFragment : BaseFragment(), DetailsMovieContrat.View {
     private lateinit var overview: TextView
     private lateinit var originalTitle: TextView
     private lateinit var saveButton: Button
-    private lateinit var presenter: DetailsMovieContrat.Presenter
+    private lateinit var presenter: DetailsMovieContract.Presenter
     private lateinit var deleteButton: Button
 
 

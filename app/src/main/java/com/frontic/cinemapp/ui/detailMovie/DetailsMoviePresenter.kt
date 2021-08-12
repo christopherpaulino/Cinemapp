@@ -15,11 +15,18 @@ import java.io.IOException
 import java.io.OutputStream
 import java.util.*
 
+/**
+ * Presenter that interacts with [DetailMovieFragment].
+ *
+ * @param view      instance of [DetailsMovieContract.View] interface that represents the View.
+ * @param context   Context of the View.
+ * @author          Christopher Paulino.
+ */
 class DetailsMoviePresenter(
-    private val view: DetailsMovieContrat.View,
+    private val view: DetailsMovieContract.View,
     private val context: Context
 ) :
-    DetailsMovieContrat.Presenter {
+    DetailsMovieContract.Presenter {
 
     private val job = Job()
     private val scopeMainThread = CoroutineScope(job + Dispatchers.Main)

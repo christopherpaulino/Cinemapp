@@ -2,7 +2,11 @@ package com.frontic.cinemapp.ui.detailMovie
 
 import com.frontic.cinemapp.models.MovieListResult
 
-class DetailsMovieContrat {
+/**
+ * Contract with the interfaces to be implemented by DetailsMovie View and Presenter
+ * according to MVP Pattern.
+ */
+class DetailsMovieContract {
 
     interface Presenter {
         fun saveMovie(movieListResult: MovieListResult)

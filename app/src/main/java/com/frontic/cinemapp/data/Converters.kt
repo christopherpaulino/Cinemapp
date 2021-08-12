@@ -6,7 +6,11 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
-
+/**
+ * This class manage all [TypeConverter] needed for reading or writing in the database.
+ *
+ * @author Christopher Paulino.
+ */
 class Converters {
 
     @TypeConverter
