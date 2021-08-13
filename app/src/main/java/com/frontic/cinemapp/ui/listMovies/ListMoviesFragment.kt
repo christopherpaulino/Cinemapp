@@ -64,14 +64,14 @@ class ListMoviesFragment : BaseFragment(), ListMoviesContract.View {
         presenter.getTrending(MediaType.movie.name)
     }
 
-    override fun showLoading(t: Boolean) {
-        swipeRefresher.isRefreshing = t
+    override fun showLoading(show: Boolean) {
+        swipeRefresher.isRefreshing = show
     }
 
     override fun showList(list: List<MovieListResult>) {
-        recyclerView.adapter = context?.let {
+        recyclerView.adapter = context?.let { context ->
             ListMoviesAdapter(
-                it,
+                context,
                 list.sortedByDescending { it.voteAverage },
                 genres,
                 this
@@ -92,4 +92,7 @@ class ListMoviesFragment : BaseFragment(), ListMoviesContract.View {
         noNetworkView.visibility = if (t) View.VISIBLE else View.GONE
     }
 
+    override fun showMessage(message: String) {
+        showAlertMessage(message)
+    }
 }

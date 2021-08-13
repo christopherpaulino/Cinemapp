@@ -16,4 +16,5 @@
     <string name="movie_icon_content_description">Icono de pelicula</string>
     <string name="warning_icon_content_description">Icono de advertencia</string>
     <string name="no_internet_connection">Sin conexión a internet</string>
+    <string name="atention_message">Atencion!</string>
 </resources>

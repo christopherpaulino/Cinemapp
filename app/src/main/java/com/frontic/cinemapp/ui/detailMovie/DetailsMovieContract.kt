@@ -11,11 +11,12 @@ class DetailsMovieContract {
     interface Presenter {
         fun saveMovie(movieListResult: MovieListResult)
         fun deleteMovie(movieListResult: MovieListResult)
-        fun checkIfExist(id: String)
+        fun checkIfExist(id: Int)
     }
 
     interface View {
         fun onDeletedItem()
+        fun setSaveButtonVisibility(show: Boolean)
     }
 
 }

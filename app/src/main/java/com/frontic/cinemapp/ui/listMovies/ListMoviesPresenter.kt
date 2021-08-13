@@ -1,7 +1,6 @@
 package com.frontic.cinemapp.ui.listMovies
 
 import android.content.Context
-import android.util.Log
 import com.frontic.cinemapp.api.ApiRest
 import com.frontic.cinemapp.data.AppDatabase
 import com.frontic.cinemapp.models.Genre
@@ -38,7 +37,7 @@ class ListMoviesPresenter(private val view: ListMoviesContract.View, private val
     override fun getTrending(mediaType: String) {
         if (isNetworkConnected()) {
 
-            ApiRest.create().getTrendingMovies(mediaType, "day",language)
+            ApiRest.create().getTrendingMovies(mediaType, "day", language)
                 .enqueue(object : Callback<ListResponse> {
                     override fun onResponse(
                         call: Call<ListResponse>,
@@ -52,8 +51,8 @@ class ListMoviesPresenter(private val view: ListMoviesContract.View, private val
                     }
 
                     override fun onFailure(call: Call<ListResponse>, t: Throwable) {
-                        Log.d("Request", t.message!!)
                         view.showLoading(false)
+                        view.showMessage("${t.message}")
                     }
                 })
         }
@@ -75,6 +74,7 @@ class ListMoviesPresenter(private val view: ListMoviesContract.View, private val
 
                 override fun onFailure(call: Call<GenreResponse>, t: Throwable) {
                     view.showLoading(false)
+                    view.showMessage("${t.message}")
                 }
             })
         }

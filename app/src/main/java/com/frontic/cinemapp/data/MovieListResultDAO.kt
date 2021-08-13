@@ -19,7 +19,7 @@ interface MovieListResultDAO {
     suspend fun getMyMovies(): List<MovieListResult>
 
     @Query("select * from my_movies where id = :id")
-    suspend fun getMovieById(id: Int): MovieListResult
+    suspend fun getMovieById(id: Int): MovieListResult?
 
     @Query("delete from my_movies")
     suspend fun clear()

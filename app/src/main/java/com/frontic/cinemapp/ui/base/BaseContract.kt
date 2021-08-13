@@ -6,5 +6,6 @@ class BaseContract {
 
     interface BaseView{
         fun goToMovie(movieListResult: MovieListResult)
+        fun showMessage(message: String)
     }
 }

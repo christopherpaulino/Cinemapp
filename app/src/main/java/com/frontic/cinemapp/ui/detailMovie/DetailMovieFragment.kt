@@ -88,11 +88,18 @@ class DetailMovieFragment : BaseFragment(), DetailsMovieContract.View {
     }
 
     private fun manageRemoteData(movieListResult: MovieListResult) {
-        saveButton.visibility = View.VISIBLE
+        //hide/show save button if already exists this movie in DB.
+        presenter.checkIfExist(movieListResult.id.toInt())
+
         saveButton.setOnClickListener{ presenter.saveMovie(movieListResult) }
 
         GlideApi(requireContext()).loadImageFromUrl(movieListResult.posterPath,GlideApi.Size.Poster,poster)
         GlideApi(requireContext()).loadImageFromUrl(movieListResult.backdropPath,GlideApi.Size.Backdrop,backdrop)
+    }
+
+    override fun setSaveButtonVisibility(show: Boolean) {
+        Log.e("Existe view","$show")
+        saveButton.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     override fun onDeletedItem() {
@@ -104,7 +111,6 @@ class DetailMovieFragment : BaseFragment(), DetailsMovieContract.View {
             findNavController().navigateUp()
         }
         return super.onOptionsItemSelected(item)
-
     }
 
 }

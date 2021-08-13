@@ -30,23 +30,21 @@ class DetailsMoviePresenter(
 
     private val job = Job()
     private val scopeMainThread = CoroutineScope(job + Dispatchers.Main)
-    private val scopeIO = CoroutineScope(job + Dispatchers.IO)
 
     override fun saveMovie(movieListResult: MovieListResult) {
         scopeMainThread.launch {
             saveMovieDB(movieListResult)
+            view.setSaveButtonVisibility(false)
         }
     }
 
-    private suspend fun saveMovieDB(movieListResult: MovieListResult): Int {
+    private suspend fun saveMovieDB(movieListResult: MovieListResult) {
         return withContext(Dispatchers.IO) {
+
             movieListResult.location = Location.Local
             AppDatabase.getInstance(context).movieListResultDAO.insert(movieListResult)
             saveImage(movieListResult.posterPath, GlideApi.Size.Poster)
             saveImage(movieListResult.backdropPath, GlideApi.Size.Backdrop)
-
-            val list = AppDatabase.getInstance(context).movieListResultDAO.getMyMovies()
-            return@withContext list.size
         }
     }
 
@@ -57,17 +55,27 @@ class DetailsMoviePresenter(
         }
     }
 
-    private suspend fun deleteMovieDB (movieListResult: MovieListResult){
-        return withContext(Dispatchers.IO){
+    private suspend fun deleteMovieDB(movieListResult: MovieListResult) {
+        return withContext(Dispatchers.IO) {
             AppDatabase.getInstance(context).movieListResultDAO.delete(movieListResult)
         }
     }
 
-    override fun checkIfExist(id: String) {
+    override fun checkIfExist(id: Int) {
+        scopeMainThread.launch {
 
+            view.setSaveButtonVisibility(!checkIfExistInDB(id))
+        }
     }
 
-    private suspend fun saveImage(path: String, size: GlideApi.Size) {
+    private suspend fun checkIfExistInDB(id: Int): Boolean {
+        return withContext(Dispatchers.IO) {
+            val movie = AppDatabase.getInstance(context).movieListResultDAO.getMovieById(id)
+            return@withContext (movie != null)
+        }
+    }
+
+    private fun saveImage(path: String, size: GlideApi.Size) {
         val bitmap = GlideApi(context).getImageBitmap(path, size)
 
         val wrapper = ContextWrapper(context)
@@ -86,7 +94,5 @@ class DetailsMoviePresenter(
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
-        Log.i("uri", file.absolutePath)
     }
 }
